@@ -79,7 +79,7 @@
 		if (typeof keyString === 'string') {
 			arr = keyString.split('.');
 			for (i = 0; i < arr.length; i++) {
-				if (typeof obj === 'object' && obj.hasOwnProperty(arr[i])) {
+				if (obj && typeof obj === 'object' && obj.hasOwnProperty(arr[i])) {
 					obj = obj[arr[i]];
 				} else {
 					return;
