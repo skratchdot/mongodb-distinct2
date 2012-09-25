@@ -3,8 +3,8 @@
 /**
  * MongoDB - distinct2.js
  * 
- *      Version: 1.0
- *         Date: August 15, 2012
+ *      Version: 1.1
+ *         Date: September 24, 2012
  *      Project: http://skratchdot.com/projects/mongodb-distinct2/
  *  Source Code: https://github.com/skratchdot/mongodb-distinct2/
  *       Issues: https://github.com/skratchdot/mongodb-distinct2/issues/
@@ -196,7 +196,17 @@
 	 *                  If count is true, we will return an array of arrays where the last value is the count.
 	 */
 	DBCollection.prototype.distinct2 = function (keys, count) {
-		return this.find({}).distinct2(keys, count);
+		var fields = {}, i;
+		if (typeof keys === 'string') {
+			keys = [keys];
+		}
+		if (!isArray(keys)) {
+			keys = [];
+		}
+		for (i = 0; i < keys.length; i++) {
+			fields[keys[i]] = 1;
+		}
+		return this.find({}, fields).distinct2(keys, count);
 	};
 
 }());
