@@ -24,7 +24,7 @@ DBQuery.prototype.distinct2 = function (keys, count) {};
 ## Usage: ##
 
 ```javascript
-// All 4 of these statements are the same as:
+// All 5 of these statements are the same as:
 //
 //     db.users.distinct('name.first')
 //
@@ -32,6 +32,7 @@ db.users.distinct2('name.first');
 db.users.distinct2('name.first', false);
 db.users.distinct2(['name.first']);
 db.users.distinct2(['name.first'], false);
+db.users.find().distinct2('name.first');
 
 // you can pass in an array of values
 db.users.distinct2(['name.first','name.last']);
@@ -40,7 +41,7 @@ db.users.distinct2(['name.first','name.last']);
 db.users.distinct2('name.first', true);
 
 // you can get distinct values from the results of a query
-db.users.find({'name.first':'Bob'}).distinct('name.last');
+db.users.find({'name.first':'Bob'}).distinct2('name.last');
 ```
 
 ## Installation: ##
