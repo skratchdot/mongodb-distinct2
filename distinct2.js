@@ -3,8 +3,8 @@
 /**
  * MongoDB - distinct2.js
  * 
- *      Version: 1.3
- *         Date: December 9, 2012
+ *      Version: 1.4
+ *         Date: December 10, 2012
  *      Project: http://skratchdot.com/projects/mongodb-distinct2/
  *  Source Code: https://github.com/skratchdot/mongodb-distinct2/
  *       Issues: https://github.com/skratchdot/mongodb-distinct2/issues/
@@ -155,7 +155,7 @@
                 }
             }
             // print status info
-            printStatus(currentDocNum++, numDocs, dataOrder.length);
+            printStatus(++currentDocNum, numDocs, dataOrder.length);
         });
 
         // should we return an array of values?
